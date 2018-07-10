@@ -1,0 +1,17 @@
+{
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "editor.tabSize": 2,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "window.zoomLevel": 0
+}
