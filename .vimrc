@@ -13,7 +13,6 @@ set wildmenu
 set lazyredraw
 set showmatch
 set autoindent
-"colorscheme solarized
 
 "Search
 set incsearch
@@ -30,4 +29,4 @@ set foldmethod=indent
 "Movement
 nnoremap j gj
 nnoremap k gk
-inoremap jk <Esc>
+inoremap jk <Esc>noremap jk <Esc>
