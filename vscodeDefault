@@ -6,12 +6,20 @@
     "files.associations": {
         "*.js": "javascriptreact"
     },
+    "emmet.includeLanguages": {
+        "javascript": "jsx",
+    },
     "editor.tabSize": 2,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "window.zoomLevel": 0
+    "vim.insertModeKeyBindings": [{
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
+    }],
+    "window.zoomLevel": 0,
+    "eslint.run": "onSave",
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Material Theme High Contrast",
+    "materialTheme.fixIconsRunning": false,
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "editor.fontSize": 13,
 }
