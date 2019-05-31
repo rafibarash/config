@@ -23,5 +23,14 @@ set softtabstop=4                   "Number of spaces per tab
 inoremap jk <Esc>noremap jk <Esc>
 
 "Advanced
-set clipboard=unnamed               "Integrate mac clipboard with vim
+if has ('mac')
+    set clipboard=unnamed	    "Integrate mac clipboard with vim
+endif
+
+"Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))  "Installs vim-plug (plugin mangr)
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
