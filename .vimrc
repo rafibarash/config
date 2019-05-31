@@ -19,18 +19,42 @@ set smartindent                     "Enable smart-indent
 set smarttab                        "Enable smart-tabs
 set softtabstop=4                   "Number of spaces per tab
 
+
 "Mappings
+
+"Maps jk to <Esc>
 inoremap jk <Esc>noremap jk <Esc>
+
+"Maps <Ctrl-O> to :NERDTreeToggle Plugin
+map <C-o> :NERDTreeToggle<CR>
+
 
 "Advanced
 if has ('mac')
     set clipboard=unnamed	    "Integrate mac clipboard with vim
 endif
 
+
 "Plugins
-if empty(glob('~/.vim/autoload/plug.vim'))  "Installs vim-plug (plugin mangr)
+
+"Installs plugin manager Vim-Plug (https://github.com/junegunn/vim-plug)
+if empty(glob('~/.vim/autoload/plug.vim')) 
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+"Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+"Declare the list of plugins.
+
+Plug 'scrooloose/nerdtree'		"Tree explorer plugin
+Plug 'editorconfig/editorconfig-vim'	"Use .editorconfig settings
+Plug 'mattn/emmet-vim'			"Emmet html autocomplete
+Plug 'vim-airline/vim-airline'		"Enhanced vim status line
+Plug 'tpope/vim-fugitive'		"Git wrapper for vim
+
+"List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
