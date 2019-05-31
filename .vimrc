@@ -1,32 +1,27 @@
-"UI
-set showmode
-set backspace=indent,eol,start
-syntax on 
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set number
-set showcmd
-set cursorline
-filetype indent plugin on
-set wildmenu
-set lazyredraw
-set showmatch
-set autoindent
+"General
+set linebreak                       "Break lines at word (req Wrap-lines) 
+set textwidth=80                    "Line wrap at 80 cols
+set backspace=indent,eol,start      "Backspace behavior
 
-"Search
-set incsearch
-set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
+syntax on			    "Enable syntax highlighting
+set number                          "Show line numbers
+set showmatch                       "Highlight matching brace
+set ruler			    "Show row and col numbers
+set showmode			    "Shows current mode (ex: VISUAL)
 
-"Folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=90
-nnoremap <space> za
-set foldmethod=indent
+set hlsearch                        "Highlight all search results
+set smartcase                       "Enable smart-case search
+set ignorecase                      "Search case-insensitive
 
-"Movement
-nnoremap j gj
-nnoremap k gk
+set autoindent                      "Auto-indent new lines
+set shiftwidth=4                    "Number of auto-indent spaces
+set smartindent                     "Enable smart-indent
+set smarttab                        "Enable smart-tabs
+set softtabstop=4                   "Number of spaces per tab
+
+"Mappings
 inoremap jk <Esc>noremap jk <Esc>
+
+"Advanced
+set clipboard=unnamed               "Integrate mac clipboard with vim
+
