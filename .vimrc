@@ -51,9 +51,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'		"Tree explorer plugin
 Plug 'editorconfig/editorconfig-vim'	"Use .editorconfig settings
-Plug 'mattn/emmet-vim'			"Emmet html autocomplete
 Plug 'vim-airline/vim-airline'		"Enhanced vim status line
-Plug 'tpope/vim-fugitive'		"Git wrapper for vim
 
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
