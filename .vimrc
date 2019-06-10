@@ -23,11 +23,7 @@ set softtabstop=4                   "Number of spaces per tab
 "Mappings
 
 "Maps jk to <Esc>
-inoremap jk <Esc>noremap jk <Esc>
-
-"Maps <Ctrl-O> to :NERDTreeToggle Plugin
-map <C-o> :NERDTreeToggle<CR>
-
+inoremap jk <Esc>
 
 "Advanced
 if has ('mac')
@@ -49,7 +45,6 @@ call plug#begin('~/.vim/plugged')
 
 "Declare the list of plugins.
 
-Plug 'scrooloose/nerdtree'		"Tree explorer plugin
 Plug 'editorconfig/editorconfig-vim'	"Use .editorconfig settings
 Plug 'vim-airline/vim-airline'		"Enhanced vim status line
 
