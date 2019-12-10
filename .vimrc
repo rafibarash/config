@@ -1,4 +1,4 @@
-"General
+"-- GENERAL --
 set linebreak                       "Break lines at word (req Wrap-lines)
 set textwidth=80                    "Line wrap at 80 cols
 set backspace=indent,eol,start      "Backspace behavior
@@ -30,6 +30,9 @@ set omnifunc=syntaxcomplete#Complete
 "Maps jk to <Esc>
 inoremap jk <Esc>
 
+"Maps <C-F> to format python code with yapf
+map <C-F> :call yapf#YAPF()<cr>
+
 "Advanced
 if has ('mac')
     set clipboard=unnamed	    "Integrate mac clipboard with vim
@@ -37,22 +40,6 @@ endif
 
 
 "-- PLUGINS --
-
-"Ale fixers
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-
-"Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
-
-"Show errors in statusline with airline
-let g:airline#extensions#ale#enabled = 1
-
-"NeoVim Format on save
-autocmd BufWritePre *.js Neoformat
 
 "Installs plugin manager Vim-Plug (https://github.com/junegunn/vim-plug)
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -64,15 +51,39 @@ endif
 "Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-"Declare the list of plugins.
-
-Plug 'editorconfig/editorconfig-vim'	"Use .editorconfig settings
+"Vim/tmux enhancement
 Plug 'vim-airline/vim-airline'		"Enhanced vim status line
 Plug 'dikiaap/minimalist'		"Editor theme
-Plug 'w0rp/ale'				"Linting tool
+Plug 'christoomey/vim-tmux-navigator'	"Makes tmux work nicer with vim
+
+"Language support
+"Plug 'Valloric/YouCompleteMe'		"Autocomplete - git cloned manually
 Plug 'pangloss/vim-javascript'		"JS syntax highlighting
 Plug 'mxw/vim-jsx'			"JSX syntax highlighting
-Plug 'sbdchd/neoformat'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }    "Golang support
+
+"Formatter plugins
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }	"Python
+Plug 'w0rp/ale'			"Multi-language formatter/linter
 
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+
+"-- PLUGIN CONFIGS --
+
+" YCM autocomplete
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Ale fixing/linting
+" let g:ale_linters_explicit = 1	    "only lint when explicitly configured
+let g:ale_fix_on_save = 1	    "format on save
+" Fix files with prettier, and then ESLint.
+let g:ale_fixers = ['prettier', 'eslint']
+" let g:ale_fixers = {
+" \   'javascript': ['prettier'],
+" \   'javascript.tsx': ['prettier'],
+" \   'typescript': ['prettier'],
+" \   'typescript.tsx': ['prettier'],
+" \   'css': ['prettier'],
+" \}
